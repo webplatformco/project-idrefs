@@ -65,10 +65,9 @@ Some developers don't bother doing this and end up with broken references, or av
 ## User research
 
 This is a very common author pain point, and authors are pretty vocal about it.
-DX-related complaints were the 3rd biggest a11y complaint in the preliminary State of HTML results 2023.
+DX-related complaints were the 3rd biggest a11y complaint in the preliminary State of HTML results 2023 (though not all were about idrefs).
 
 User research has moved to [research.md](research.md).
-
 
 ## Current workarounds
 

@@ -2,9 +2,22 @@
 
 ## State of HTML surveys
 
+These are responses to the question:
+> What are your biggest pain points around web accessibility?
+
 ### 2023
 
-> TODO
+> aria attributes requiring elements to have IDs to use them (like aria-controls, aria-labelledby), which is a pain in dynamic applications
+
+> have to use tons of id's
+
+> Generating IDs for just about every piece of content and keeping up with the IDs and letting the upper realm know about them.
+
+> adding unique id for labels to work
+
+> The platform doesn't help with basic needs like creating unique IDREFs.
+
+There were also many responses around cross-root ARIA, either mentioning ids directly, or simply mentioning cross-root ARIA as a pain point.
 
 ### 2024
 
