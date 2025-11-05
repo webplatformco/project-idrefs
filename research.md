@@ -464,6 +464,16 @@ https://front-end.social/@ausi@mastodon.social/115016420724181738
 
 #### [X Post](https://x.com/bramus/status/1955283107134709886)
 
+---
+
+> name.
+>
+> I've always been annoyed that I need to set id and name on my `<input>`
+
+https://x.com/steren/status/1956362345619534213
+
+---
+
 > In case of name specifically we have for example the radio in which case multiple elements share same name.
 What element would be focused when you click the label?
 >
@@ -477,35 +487,95 @@ What element would be focused when you click the label?
 >
 > This could be handy in some cases, but how complicated this kind of agreement could be?
 
+https://x.com/SilentImp/status/1955640442860843116
+
+---
+
 > `<label querySelector=...` ?
+
+https://x.com/DenisTRUFFAUT/status/1955316332590727651
+
+---
 
 > Any css selector maybe? The first match will be the one. Making it possible to limit the search within the scope will make it easy to create an elements with linking inside but without need of generating unique ids for each instance
 
+https://x.com/800147/status/1955288283631456749
+
+---
+
 > css selector comes to mind?
+
+https://x.com/olaf_k/status/1955296590962254085
+
+---
 
 > Scoping. Either implicit (parent's DOM tree) or some explicit, through distinct attributes, or something like that. Global (entire-document) IDs were a mistake, and subscribing to a global scope should have been something special.
 
+https://x.com/myfonj/status/1955340844590067734
+
+---
+
 > Is “ref”/“reference” to obvious? 😁
+
+https://x.com/rqen/status/1955283828374659166
+
+---
 
 > Yes, because using `id` makes me handle random id generation when generating inputs dynamically
 
+https://x.com/lixeletto/status/1955616784591298709
+
+---
+
 > Have wished referencing an input element using it's name within the form. This would work for label's "for" but for attributes like aria-labelledby, it doesn't feel right
+
+https://x.com/vsr/status/1955293622179426741
+
+---
 
 > I want a way to use UL LI counter values as unique IDs. Better yet, CSS counters - no extra markup.
 >
 > Game changer.
 
+https://x.com/dragontheory/status/1955435836369146203
+
+---
+
 > simply wrap them in an parent and label should automatically associate itself with all its immediate sibling nodes.  helps scope the things, solves name or other identifier collision problem too. leaves the naming of the parent element as open question. just a thought.
+
+https://x.com/technikhil314/status/1955675108934344832
+
+---
 
 > Blazor `@ref=""` ?
 
+https://x.com/wstaelens/status/1955366320024981685
+
+---
+
 > This would be awesome for certain instances where forms are dynamically generated and you don’t want to come up with id strings. I’ve liked nesting controls within labels to solve this to an extent but doesn’t always work - I think name attr might work well enough?
+
+https://x.com/godwincodes/status/1955590681776591154
+
+---
 
 > I guess a data attribute would work but that's state in most apps. The attribute has to be something that can never be changed even by JS!
 
+https://x.com/SheltonLouisX/status/1955600114762055850
+
+---
+
 > Using a `data-*` attribute.
 
+https://x.com/css_wizard/status/1955314125304643830
+
+---
+
 > In this particular case, if it wasn't an issue for screen readers, nesting the input in `label` and keeping the association implicitly without the need for `for` attribute, descendant selector and using `querySelector()` with class could have been just fine.
+
+https://x.com/iamthebuilder__/status/1955371673827545599
+
+---
 
 ### Noam’s posts
 
