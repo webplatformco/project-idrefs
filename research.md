@@ -264,7 +264,48 @@ So a dedicated attribute might be better... Maybe 'target'?
 
 #### [X Post](https://x.com/bramus/status/1955283107134709886)
 
-> TODO
+> In case of name specifically we have for example the radio in which case multiple elements share same name.
+What element would be focused when you click the label?
+>
+> But the key here is the way of identifying the element we want to address. For now we have one implicit way to establish relationship: put input element inside the label.
+>
+> But even then there are some ambiguity: we should refer first one if there are more than one inside?
+>
+>If this ambiguity and handling it by conventions is ok, we can for example pick up first match in some scope.
+>
+> Next html element (sibling) if no input inside the label would also be an option.
+>
+> This could be handy in some cases, but how complicated this kind of agreement could be?
+
+> `<label querySelector=...` ?
+
+> Any css selector maybe? The first match will be the one. Making it possible to limit the search within the scope will make it easy to create an elements with linking inside but without need of generating unique ids for each instance
+
+> css selector comes to mind?
+
+> Scoping. Either implicit (parent's DOM tree) or some explicit, through distinct attributes, or something like that. Global (entire-document) IDs were a mistake, and subscribing to a global scope should have been something special.
+
+> Is “ref”/“reference” to obvious? 😁
+
+> Yes, because using `id` makes me handle random id generation when generating inputs dynamically
+
+> Have wished referencing an input element using it's name within the form. This would work for label's "for" but for attributes like aria-labelledby, it doesn't feel right
+
+> I want a way to use UL LI counter values as unique IDs. Better yet, CSS counters - no extra markup.
+>
+> Game changer.
+
+> simply wrap them in an parent and label should automatically associate itself with all its immediate sibling nodes.  helps scope the things, solves name or other identifier collision problem too. leaves the naming of the parent element as open question. just a thought.
+
+> Blazor `@ref=""` ?
+
+> This would be awesome for certain instances where forms are dynamically generated and you don’t want to come up with id strings. I’ve liked nesting controls within labels to solve this to an extent but doesn’t always work - I think name attr might work well enough?
+
+> I guess a data attribute would work but that's state in most apps. The attribute has to be something that can never be changed even by JS!
+
+> Using a `data-*` attribute.
+
+> In this particular case, if it wasn't an issue for screen readers, nesting the input in `label` and keeping the association implicitly without the need for `for` attribute, descendant selector and using `querySelector()` with class could have been just fine.
 
 ### Noam’s posts
 
