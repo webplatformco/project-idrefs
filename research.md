@@ -175,7 +175,88 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 
 #### [Bluesky Post](https://bsky.app/profile/did:plc:343p6xcgmvkpz5abgezlgyep/post/3lw7kzprc6c25)
 
-> TODO
+> `<label for=“id”>` (backward compatibility)
+>
+> `<label for-name=“name”>`
+>
+> `<label for-selector=“css-selector”>`
+>
+> Or is the last one, easier to recall when like this?
+>
+> `<label for-select=“css-selector”>`
+>
+> Or?
+>
+> `<label for-query=“css-selector”>`
+
+> Yes, every time. Something that allows relative selecting.
+>
+> The ID model creates issues in the component model, forcing us to rely on some PRNG ID generator. With components, you cannot guarantee only one instance of the element.
+
+> The for attribute accepting a querySelector would be handy.
+>
+> That way you could target `[name=foo]` or maybe even `& + *`
+>
+> When querySelector returns multiple fields, pick first one.
+
+> Previous and next with some kind of CSS selector
+
+> I haven't figured out all the details, but having options like `nearest(<css selector>)` and similar `nearestChild()` and `nearestParent()` would help.
+>
+> To be clear, I envision something like this:
+>
+> `<label for="nearest(my-wc-input)">`
+
+> I wish we could write labels without `for`, or with for-nearest="true", to make the browser walk the tree in depth-first order looking for the nearest form control to associate
+
+> What if you could  scope id's within the DOM? So you'd put an attribute on your component's outer element that it's a scope, and then things like for look for eloements with an ID within that scope? Then you're not executing a whole CSS query for every "for" attribute
+
+> Similar to what others have said here already, some sort of query selector-like syntax would be suuuuper useful, especially for pointing to a sibling input.
+>
+> E.g. something that says "hey this label is for the input next to it" like:
+>
+> `<label for="+input">...</label>`
+>
+> `<input type="text" />`
+
+> I agree and previous with minus? (Not valid css, but ok)
+>
+> `<input type=“checkbox” />`
+>
+> `<label for=“-input”>yes</label>`
+>
+> for="+next"
+>
+> and
+>
+> for="-previous”
+>
+> to select the adjacent form elements could be a way to declare this. So it could also apply to <select> and <textarea>
+
+> I've been wanting this for ages. Pretty much everything on a web page is context dependent, so essentially if you have a way to define the context and then execute a selector pattern in that context, you could do almost anything.
+>
+> for="form:has(:scope) [name=field]"
+>
+> for=":scope + *"
+>
+> for="body #x"
+
+> I would love to be able to refer to a CSS dashed ident of another object, and also to scope it to parts of the DOM as others already mentioned. Would be way more useful than what we have now with for and id 😁
+
+> I know you probably meant something declarative in HTML, but I'd like a *property* instead: a `forElement` that, like `commandForElement`, can refer to an element without an id and even inside or outside a shadow root.
+
+> Others have said everything already, but I'll add my name to the list wishing that `for` worked like `querySelector` and took any selector. Being able to hand roll `data-` attributes dynamically, grab the next/nth sibling of a specific type, even traversing the DOM.
+>
+> There's definitely scope for abuse and confusing logic, but I think the current association trips people up a lot anyway, particularly in component architectures where guaranteeing uniqueness on a page is hard-to-impossible
+>
+> Plus it feels possible to do this without a new attribute. Could allow a fallback for older browsers, and some kind of syntactic sugar to enhance with better selectors. Because `for` is a decent name.
+
+> I'd love to have something similar to anchor positioning for this. Based on e.g. name but where I could also define a scope for that name.
+>
+> Although reusing 'name' might not be ideal. There might be use cases where it make sense to set multiple 'names' that have different scopes.
+So a dedicated attribute might be better... Maybe 'target'?
+
+> For me it's okay to call useId in my components. Some kind of selector would lead to debugging overhead imo.
 
 #### [Mastodon Post](https://front-end.social/@bramus/115016389746283451)
 
