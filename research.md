@@ -175,6 +175,8 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 
 #### [Bluesky Post](https://bsky.app/profile/did:plc:343p6xcgmvkpz5abgezlgyep/post/3lw7kzprc6c25)
 
+---
+
 > `<label for=“id”>` (backward compatibility)
 >
 > `<label for-name=“name”>`
@@ -189,9 +191,17 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > `<label for-query=“css-selector”>`
 
+https://bsky.app/profile/redfeet.nl/post/3lwb7qkah7c2s
+
+---
+
 > Yes, every time. Something that allows relative selecting.
 >
 > The ID model creates issues in the component model, forcing us to rely on some PRNG ID generator. With components, you cannot guarantee only one instance of the element.
+
+https://bsky.app/profile/emnudge.dev/post/3lw7mjpdh322e
+
+---
 
 > The for attribute accepting a querySelector would be handy.
 >
@@ -199,7 +209,15 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > When querySelector returns multiple fields, pick first one.
 
+https://bsky.app/profile/rikschennink.com/post/3lwb5fvnyuc2h
+
+---
+
 > Previous and next with some kind of CSS selector
+
+https://bsky.app/profile/patrickoneill.dev/post/3lw7vv5dons2y
+
+---
 
 > I haven't figured out all the details, but having options like `nearest(<css selector>)` and similar `nearestChild()` and `nearestParent()` would help.
 >
@@ -207,9 +225,21 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > `<label for="nearest(my-wc-input)">`
 
+https://bsky.app/profile/nick-gard.bsky.social/post/3lw7mwnbl2c2n
+
+---
+
 > I wish we could write labels without `for`, or with for-nearest="true", to make the browser walk the tree in depth-first order looking for the nearest form control to associate
 
+https://bsky.app/profile/alexvipond.dev/post/3lwijkgguec2j
+
+---
+
 > What if you could  scope id's within the DOM? So you'd put an attribute on your component's outer element that it's a scope, and then things like for look for eloements with an ID within that scope? Then you're not executing a whole CSS query for every "for" attribute
+
+https://bsky.app/profile/bigblind.me/post/3lw7tdyahyk2z
+
+---
 
 > Similar to what others have said here already, some sort of query selector-like syntax would be suuuuper useful, especially for pointing to a sibling input.
 >
@@ -218,6 +248,10 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 > `<label for="+input">...</label>`
 >
 > `<input type="text" />`
+
+https://bsky.app/profile/bbag.bsky.social/post/3lw7p5j2cbc2c
+
+---
 
 > I agree and previous with minus? (Not valid css, but ok)
 >
@@ -233,6 +267,10 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > to select the adjacent form elements could be a way to declare this. So it could also apply to `<select>` and `<textarea>`
 
+https://bsky.app/profile/redfeet.nl/post/3lwadwdbrp22z
+
+---
+
 > I've been wanting this for ages. Pretty much everything on a web page is context dependent, so essentially if you have a way to define the context and then execute a selector pattern in that context, you could do almost anything.
 >
 > for="form:has(:scope) [name=field]"
@@ -241,9 +279,21 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > for="body #x"
 
+https://bsky.app/profile/noyearzero.bsky.social/post/3lwmhtonhxk2x
+
+---
+
 > I would love to be able to refer to a CSS dashed ident of another object, and also to scope it to parts of the DOM as others already mentioned. Would be way more useful than what we have now with for and id 😁
 
+https://bsky.app/profile/alexlehner86.bsky.social/post/3lwjnfda3rs2t
+
+---
+
 > I know you probably meant something declarative in HTML, but I'd like a *property* instead: a `forElement` that, like `commandForElement`, can refer to an element without an id and even inside or outside a shadow root.
+
+https://bsky.app/profile/maxart2501.bsky.social/post/3lwitedesz22f
+
+---
 
 > Others have said everything already, but I'll add my name to the list wishing that `for` worked like `querySelector` and took any selector. Being able to hand roll `data-` attributes dynamically, grab the next/nth sibling of a specific type, even traversing the DOM.
 >
@@ -251,12 +301,24 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > Plus it feels possible to do this without a new attribute. Could allow a fallback for older browsers, and some kind of syntactic sugar to enhance with better selectors. Because `for` is a decent name.
 
+https://bsky.app/profile/theadhocracy.bsky.social/post/3lwht4yqyfc25
+
+---
+
 > I'd love to have something similar to anchor positioning for this. Based on e.g. name but where I could also define a scope for that name.
 >
 > Although reusing 'name' might not be ideal. There might be use cases where it make sense to set multiple 'names' that have different scopes.
 So a dedicated attribute might be better... Maybe 'target'?
 
+https://bsky.app/profile/th3s4mur41.me/post/3lwh2ze4vg22v
+
+---
+
 > For me it's okay to call useId in my components. Some kind of selector would lead to debugging overhead imo.
+
+https://bsky.app/profile/bano.dev/post/3lwaghbvwf22s
+
+---
 
 #### [Mastodon Post](https://front-end.social/@bramus/115016389746283451)
 
