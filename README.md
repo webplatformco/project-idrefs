@@ -67,31 +67,7 @@ Some developers don't bother doing this and end up with broken references, or av
 This is a very common author pain point, and authors are pretty vocal about it.
 DX-related complaints were the 3rd biggest a11y complaint in the preliminary State of HTML results 2023.
 
-@bramus did some snowball sampling research on social media (links: [Bsky](https://bsky.app/profile/did:plc:343p6xcgmvkpz5abgezlgyep/post/3lw7kzprc6c25), [Mastodon](https://front-end.social/@bramus/115016389746283451), [X](https://x.com/bramus/status/1955283107134709886)),
-asking:
-
-> 🙋‍♂️❓
->
-> Using attributes like `for` require you to reference another element using that element’s `id`.
->
-> E.g. `<label for="x"></label> … <input id="x">`
->
-> Do you sometimes wish you had another way to refer to another element on the page, without needing to generate an id? If so, what would you want?
-
-Most authors expressed pain points, and many wished for the ability to use CSS selectors to target elements.
-
-
-@alice asked different questions:
-
-> - What are the specific pain points around using IDs?
-> - How does existing tooling address these pain points (i.e. what “cow paths” are there that we could look at?)
-> - How does existing tooling fail to adequately address those pain points?
-> - How are these pain points impacting authors’ abilities to author usable, accessible web pages?
-> - What do authors like about IDs?
-> - What design constraints should we consider for any potential solution?
-> - What is the user impact of breakages in element associations? Who is impacted? How can we minimise that risk?
-
-The results are [here](https://notes.igalia.com/XlsPwU5sQfuaWYHwhtBMtA), summarized [below](#ids).
+User research has moved to [research.md](research.md).
 
 
 ## Current workarounds
@@ -102,6 +78,7 @@ The results are [here](https://notes.igalia.com/XlsPwU5sQfuaWYHwhtBMtA), summari
 - Some management of IDs in a central location
 
 ### Goals
+
 - Reduce conflicts that arise from IDs being global
 - Reduce friction of linking to another element for authors, do not require tooling for reasonable DX
 - Improve robustness of element references (reduce broken references)
