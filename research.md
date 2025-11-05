@@ -231,7 +231,7 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 >
 > for="-previous”
 >
-> to select the adjacent form elements could be a way to declare this. So it could also apply to <select> and <textarea>
+> to select the adjacent form elements could be a way to declare this. So it could also apply to `<select>` and `<textarea>`
 
 > I've been wanting this for ages. Pretty much everything on a web page is context dependent, so essentially if you have a way to define the context and then execute a selector pattern in that context, you could do almost anything.
 >
