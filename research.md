@@ -2,10 +2,12 @@
 
 ## State of HTML surveys
 
-These are responses to the question:
-> What are your biggest pain points around web accessibility?
+These are responses to pain points questions around different web platform areas.
+For example, the the question around accessibility pain points was: _"What are your biggest pain points around web accessibility?"_
 
 ### 2023
+
+#### Accessibility
 
 > aria attributes requiring elements to have IDs to use them (like aria-controls, aria-labelledby), which is a pain in dynamic applications
 
@@ -25,7 +27,69 @@ There were also many responses around cross-root ARIA, either mentioning ids dir
 
 ### 2025
 
-> TODO
+#### Accessbility
+
+> Again uniqueness. E.g. errors like "The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable", means I can't use e.g. "aside" CMS content like blockquotes, meaning I instead endup with non-semantic HTML
+
+> Generating unique-but-matching for-ID pairs in component-based dev frameworks, especially when the actual input is separated from its label and potentially seventeen levels deeper. (Dear God, I hate Angular.) It would be great if I could do something like id="foo[index]" and let the browser do the counting.
+
+> Having to manage tons of unique IDs in components and template loops
+
+> ids. Managing ids is painful. Wish I could use selectors instead.
+
+> Coming up with strategies for unique id attributes
+
+#### Forms
+
+> Having to think about _everything_: set a name, set an id, make sure it has a `<label>`, make sure there's an autocomplete attribute, make sure the client-side validation is on par with the server-side validation, etc...
+
+> labels use the ID, so you can't repeat similar forms and instead have to dynamically generate unique IDs for every form
+
+> Label aria/id is strange. Use to be if you nested an input within a label that was good enough to establish a relationship but now we always need ids which seems like overkill.
+
+> Aside from inputs nested inside a label, no way to use something other than IDs like scoped ids or name references to connect things.
+
+> the fact that wrapping an input with `<label>` is not recommended for accessibility means ensuring unique ids per field, and complicates hand-made authoring and generating content both
+
+> Unique IDs (in HTML in general) can be a pain, would like there to be another way.
+
+> Having to choose unique ids with label for attributes. Give me scoped ids!
+
+> settings ids and labels is very repetitive
+
+> No relative addressing: all IDs global
+
+> having to come up with unique ids
+
+> IDs vs names vs fors
+
+> requirement for ids
+
+> Reliance on ids
+
+#### Web Components
+
+> Never quite clear that shadow dom ID's are constrained to the component instance - many IDE's/Linter's complain
+
+#### Content
+
+> Having to add unique IDs for a11y within components. I would prefer any other way to reference elements.
+
+> I would like template-scoped element ids so I can precisely target sub-elements and fill content without having to use tag query or class query
+
+> Scope id so they aren’t in a global namespace. Maybe there’s some way to add prefixes to child elements. e.g. `<div idprefix=“foo”>`
+
+> lack of scoping for identifiers in HTML, every id is in document scope
+
+#### Graphics
+
+> IDs in inline SVGs needing to be unique on the page
+
+#### Overall Platform Limitations
+
+> Referencing via ids is painful and forces me into heavyweight solutions
+
+> Html ul li counters as native performant unique ID generators would enable so much functionality, it's hard to think of all the use cases.
 
 ## Social media
 
