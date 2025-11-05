@@ -260,7 +260,81 @@ So a dedicated attribute might be better... Maybe 'target'?
 
 #### [Mastodon Post](https://front-end.social/@bramus/115016389746283451)
 
-> TODO
+> I haven't run into this a lot but it's happened a few times, namely in JS, where I wished to do something like `inputElement.for = labelElement` as a direct reference (kind of how like `inputElement.form` would give you the DOM reference). Directly in HTML, though, it's a little annoying to have to add an ID but if I'm writing it I don't mind so much.
+>
+> Though I could see how`<label forselector=":scope > :first-child"><input name="foo"></label>` could be interesting (but quickly complex).
+
+> I wonder if we should just add a new `forElement` reflection property? Should be pretty trivial, though perhaps there's others that need that treatment too? Is the question of what should it return in the case of "auto" for where the label wraps the input.
+
+> what's hard about generating an id? I can't imagine anything being easier (especially since it's such an established convention).
+
+> Let’s say you have a component appearing 2 times on a page, each time with a different title:
+>
+> - `<schwitz-bloups title="Walala">`
+> - `<schwitz-bloups title="Wololo">`
+>
+> In the SchwitzBloups implementation (pseudo-code):
+>
+```
+<script>const uniqueId = uniqueId()</script>
+
+<div aria-labelledby={uniqueId}>
+  <h3 id="{uniqueId}" class="visually-hidden">{title}</h3>
+</div>
+```
+>
+> It would be simpler to write `aria-labelledby=":scope > h3.visually-hidden"` or `":scope > role(heading)"`.
+
+> No, id works well and can be referenced by multiple things simultaneously.
+>
+> From an accessibility point of view, I don't think the use cases are dependably either the next element or an input within a parent (think `aria-describedby`, `aria-labelledby`, `aria-details`, `aria-activedescendant` etc.), but the need for id to be unique I do agree with.
+>
+> This makes me wonder if that restriction serves any purpose other than accessibility where a 1:1 relationship is needed?
+
+> The ´name´ attribute maybe
+
+> For referencing in JS, maybe something similar to ARIA Reflection, like `label.forElement = input`.
+>
+> But in a declarative context, given a `<label>` can only label one form control, referencing an ID seems to be logical.
+
+>  i want "template instantiation" without shadow DOM.
+>
+> when you create an instance of the following template, it should have automatically managed associations that are guaranteed not to conflict with global IDs.
+>
+```
+<template>
+ <label for="foo">…</label>
+ <input id="foo" />
+</template>
+```
+>
+> i don't want selectors or any new syntax.
+>
+> i think the difference between a template vs an instance is very much relevant here. what i'm talking about is a sort of transformation that simplifies the authoring experience by allowing the final DOM output to diverge.
+>
+> an `idscope` attribute would work completely differently and it would lead to duplicate IDs (which can break CSS selectors or custom parsers). i definitely see the appeal for simple one-off cases, but i'm not sure how practical it is.
+
+> Yes. For naming things, I'd like to see more implicit naming by descendant elements, in addition to `<label>` and `<input>`, `<table>` and `<caption>`, `<figure>` and `<figcaption>`.
+>
+> But it would also be great to be able to reference any element, something like `querySelector()` in HTML attribute values. I'm imagining something like `aria-labelledby="query(> :where(h1, h2, h3))"`, `commandfor="query(~ dialog.settings)"`. First matching element "wins."
+>
+> I assume there could be performance concerns if each instance had to recalculate every time there's any DOM change. Maybe beginning the query value with `>` could scope it to descendants of that element.
+
+> I'd like some form of derived ID based on a form control's name. I often need a couple of idref associations like for/id, aria-errormessage/id, etc. and the principal element in such contexts is typically a named form control. Currently, there are some extra steps involved in getting all the form elements on the page their right label/control association and to hook up error messages and possibly anchor links in a validation error case. Maybe this can be aided with some additional stuff.
+
+> I have *not* thought this through, but just off the cuff, CSS queries would be sweeeet
+>
+> `<label fancyfor="+ input">`
+
+> Yes, always. Not sometimes ☺️
+>
+> Some type of CSS selector that is relative to the `<label>` would be great.
+>
+> Like:
+>
+> :scope ~ input
+>
+> .widget:has(>:scope) input
 
 #### [X Post](https://x.com/bramus/status/1955283107134709886)
 
