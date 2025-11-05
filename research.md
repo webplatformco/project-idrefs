@@ -322,13 +322,33 @@ https://bsky.app/profile/bano.dev/post/3lwaghbvwf22s
 
 #### [Mastodon Post](https://front-end.social/@bramus/115016389746283451)
 
+---
+
 > I haven't run into this a lot but it's happened a few times, namely in JS, where I wished to do something like `inputElement.for = labelElement` as a direct reference (kind of how like `inputElement.form` would give you the DOM reference). Directly in HTML, though, it's a little annoying to have to add an ID but if I'm writing it I don't mind so much.
 >
 > Though I could see how`<label forselector=":scope > :first-child"><input name="foo"></label>` could be interesting (but quickly complex).
 
+https://front-end.social/@chriskirknielsen/115016418984599549
+
+---
+
 > I wonder if we should just add a new `forElement` reflection property? Should be pretty trivial, though perhaps there's others that need that treatment too? Is the question of what should it return in the case of "auto" for where the label wraps the input.
 
+https://front-end.social/@Lukew@toot.wales/115033993457709791
+
+---
+
+> No, 'cos this is literally the only time I use IDs. And even then I find most of my form fields are wrapped.
+
+https://front-end.social/@devolute@mastodon.social/115034317459708380
+
+---
+
 > what's hard about generating an id? I can't imagine anything being easier (especially since it's such an established convention).
+
+https://front-end.social/@heydon/115033970678977967
+
+---
 
 > Let’s say you have a component appearing 2 times on a page, each time with a different title:
 >
@@ -347,17 +367,33 @@ https://bsky.app/profile/bano.dev/post/3lwaghbvwf22s
 >
 > It would be simpler to write `aria-labelledby=":scope > h3.visually-hidden"` or `":scope > role(heading)"`.
 
+https://front-end.social/@meduz@m.nintendojo.fr/115035116992430105
+
+---
+
 > No, id works well and can be referenced by multiple things simultaneously.
 >
 > From an accessibility point of view, I don't think the use cases are dependably either the next element or an input within a parent (think `aria-describedby`, `aria-labelledby`, `aria-details`, `aria-activedescendant` etc.), but the need for id to be unique I do agree with.
 >
 > This makes me wonder if that restriction serves any purpose other than accessibility where a 1:1 relationship is needed?
 
+https://front-end.social/@tink@w3c.social/115033963032176520
+
+---
+
 > The ´name´ attribute maybe
+
+https://front-end.social/@lordfpx@mastodon.social/115020311274493552
+
+---
 
 > For referencing in JS, maybe something similar to ARIA Reflection, like `label.forElement = input`.
 >
 > But in a declarative context, given a `<label>` can only label one form control, referencing an ID seems to be logical.
+
+https://front-end.social/@zacky@marchbox.com/115017795937790614
+
+---
 
 >  i want "template instantiation" without shadow DOM.
 >
@@ -376,17 +412,41 @@ https://bsky.app/profile/bano.dev/post/3lwaghbvwf22s
 >
 > an `idscope` attribute would work completely differently and it would lead to duplicate IDs (which can break CSS selectors or custom parsers). i definitely see the appeal for simple one-off cases, but i'm not sure how practical it is.
 
+https://front-end.social/@mayank/115017168775422081
+
+---
+
 > Yes. For naming things, I'd like to see more implicit naming by descendant elements, in addition to `<label>` and `<input>`, `<table>` and `<caption>`, `<figure>` and `<figcaption>`.
 >
 > But it would also be great to be able to reference any element, something like `querySelector()` in HTML attribute values. I'm imagining something like `aria-labelledby="query(> :where(h1, h2, h3))"`, `commandfor="query(~ dialog.settings)"`. First matching element "wins."
 >
 > I assume there could be performance concerns if each instance had to recalculate every time there's any DOM change. Maybe beginning the query value with `>` could scope it to descendants of that element.
 
+https://front-end.social/@cwilcox808@c.im/115016999314830363
+
+---
+
+> Never have, never will. Fix the software - none of this is even remotely new; and so far in 20yrs of doing web forms I’ve not seen any real world issues with implicit relations vs explicit.
+>
+> The use of IDs is a bad pattern and was a bad pattern the very moment the web moved on from being hand written full page documents and started having includes.
+
+https://front-end.social/@mattwilcox@mstdn.social/115016885931681276
+
+---
+
 > I'd like some form of derived ID based on a form control's name. I often need a couple of idref associations like for/id, aria-errormessage/id, etc. and the principal element in such contexts is typically a named form control. Currently, there are some extra steps involved in getting all the form elements on the page their right label/control association and to hook up error messages and possibly anchor links in a validation error case. Maybe this can be aided with some additional stuff.
+
+https://front-end.social/@kleinfreund@mastodon.social/115016432238285991
+
+---
 
 > I have *not* thought this through, but just off the cuff, CSS queries would be sweeeet
 >
 > `<label fancyfor="+ input">`
+
+https://front-end.social/@tylersticka@social.lol/115016427837608026
+
+---
 
 > Yes, always. Not sometimes ☺️
 >
@@ -397,6 +457,10 @@ https://bsky.app/profile/bano.dev/post/3lwaghbvwf22s
 > :scope ~ input
 >
 > .widget:has(>:scope) input
+
+https://front-end.social/@ausi@mastodon.social/115016420724181738
+
+---
 
 #### [X Post](https://x.com/bramus/status/1955283107134709886)
 
