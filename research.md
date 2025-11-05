@@ -21,8 +21,6 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 
 > The platform doesn't help with basic needs like creating unique IDREFs.
 
-
-
 #### Forms
 
 > ids for everything for labels even though they're siblings
@@ -70,7 +68,32 @@ Responses around cross-root ARIA have been omitted, as this is a well-known pain
 
 ### 2024
 
-> TODO
+#### Accessibility
+
+> having to use globally unique IDs to associate elements
+
+> massive usage of id attributes prevent easy component creation
+
+
+#### Forms
+
+> Having to make unique input IDs is annoying, I wish there was a way to namespace ids. e.g. `idgroup="some-prefix">`
+
+> id required in input
+
+> naming things the same as their ID
+
+#### Interactivity
+
+> popover API can't easily be used without js or ids
+
+> popovertarget to be any valid selector
+
+#### Content
+
+> SVG masks requiring unique IDs
+
+
 
 ### 2025
 
