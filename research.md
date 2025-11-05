@@ -5,6 +5,8 @@
 These are responses to pain points questions around different web platform areas.
 For example, the the question around accessibility pain points was: _"What are your biggest pain points around web accessibility?"_
 
+Responses around cross-root ARIA have been omitted, as this is a well-known pain point.
+
 ### 2023
 
 #### Accessibility
@@ -19,7 +21,7 @@ For example, the the question around accessibility pain points was: _"What are y
 
 > The platform doesn't help with basic needs like creating unique IDREFs.
 
-There were also many responses around cross-root ARIA, either mentioning ids directly, or simply mentioning cross-root ARIA as a pain point.
+
 
 #### Forms
 
@@ -39,7 +41,7 @@ There were also many responses around cross-root ARIA, either mentioning ids dir
 
 > having to generate ids for datalist and label's for
 
-> Creating IDs in hostile component-based frameworks, so I can match labels to inputs. I would love to have implicit for attributes when a label/input pair is wrapped in a parent container, something like <div type="inputgroup"><label><input></div>. Getting my developer community to care about generating unique IDs for every input is too hard; they aren't doing it and our code is inaccessible.
+> Creating IDs in hostile component-based frameworks, so I can match labels to inputs. I would love to have implicit for attributes when a label/input pair is wrapped in a parent container, something like `<div type="inputgroup"><label><input></div>`. Getting my developer community to care about generating unique IDs for every input is too hard; they aren't doing it and our code is inaccessible.
 
 > Setting labels to the ids needed htmlFor
 
