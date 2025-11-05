@@ -21,6 +21,51 @@ For example, the the question around accessibility pain points was: _"What are y
 
 There were also many responses around cross-root ARIA, either mentioning ids directly, or simply mentioning cross-root ARIA as a pain point.
 
+#### Forms
+
+> ids for everything for labels even though they're siblings
+
+> assigning ids to labels
+
+> Absolute ids for label input relations. Wish to have relative, form - scoped binding
+
+> associating labels with form controls is awkward; in today's component world, i tend to avoid IDs, and wrapping inputs in labels is a poor solution
+
+> oohohohohohohoho SCOPED IDs AND NAMES FOR FORMS. Right so check this out, what it you have multiple forms gathering similar data on a page, (this is especially prevalent with micro-frontends), you need a custom ID for each field, like a name with `performance.now()` or something tagged on the end. But it would be really nice if you could "scope" IDs and input names to individual forms so if can reference `:form-id>input#name` rather than just a global `#name` element
+
+> That nesting inputs in labels have fallen out of favor and ids are wanted for nested inputs
+
+> associating labels via unique IDs
+
+> having to generate ids for datalist and label's for
+
+> Creating IDs in hostile component-based frameworks, so I can match labels to inputs. I would love to have implicit for attributes when a label/input pair is wrapped in a parent container, something like <div type="inputgroup"><label><input></div>. Getting my developer community to care about generating unique IDs for every input is too hard; they aren't doing it and our code is inaccessible.
+
+> Setting labels to the ids needed htmlFor
+
+> non scoped IDs
+
+> Manually connecting the label with the input via "for" and "ids". The other method of enclosing the input within the label tag is odd. Seems like it should be the opposite like enclosing the label tag within the input tag. Similar to how the details and summary tags work.
+
+> Label/input association with unique IDs
+
+> the ways to create input labels are weird. the wrapping does not always make sense to the structure and we don't always want to create ids just for the labels
+
+> Overreliance on IDs
+
+#### Interactivity
+
+> scoping events and ids without shadow dom
+
+> All the new features are using id attribute
+
+#### Web Components
+
+> Scoped ids. Some things require ids which must be unique to the document, but authors have know way of knowing what ifs may ultimately exist in the document when it is used.
+
+> state of SVG url references and canvas filter ids inside shadow DOMs
+
+
 ### 2024
 
 > TODO
