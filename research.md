@@ -579,6 +579,36 @@ https://x.com/iamthebuilder__/status/1955371673827545599
 
 ### Noam’s posts
 
+[See here](https://github.com/webplatformco/explainers/pull/11)
+
+From @iMoses:
+This is a really important topic.
+The issue goes beyond simple ID collisions. The browser currently treats all element IDs in the document as part of a single global namespace. That made sense when pages were mostly static, but it does not fit the way we build things today, where HTML and SVG snippets are meant to be modular and reusable.
+In SVG, for example, defining a gradient requires creating a <defs> block, assigning it an id, and referencing it using url(#id) inside the same SVG. When that SVG is duplicated (for example, multiple icons on a page), all those references end up pointing to the first matching ID in the document.
+From the browser's point of view, only one element with that ID exists, so later instances lose their internal references. This causes subtle rendering bugs: gradients disappearing when another icon is hidden, filters applying to the wrong element, or accessibility links pointing to the wrong target.
+Developers have been working around this by prefixing IDs, rewriting markup at runtime or build time, or using <img> and <use> instead of inline SVGs. But all of these are just patches around a deeper issue - the lack of ID scoping within reusable fragments.
+A local or shadow-scoped ID model would solve this cleanly, allowing truly independent reuse of SVG and HTML snippets without conflicts or unintended side effects. Another option would be to update the ref property itself so it no longer relies only on global IDs, and provide a modern alternative for defining relationships that are currently ID based, as this mechanism already causes too many side effects and practical issues.
+
+...
+
+While the Shadow DOM does technically scope IDs and selectors, using it just to isolate references inside something like an SVG icon would be overkill. It adds extra DOM layers, changes event propagation, and affects styling and accessibility in ways that make it too heavy for this kind of case.
+
+What I meant is a lighter mechanism, a local or fragment-level ID scoping model. Something that behaves like Shadow DOM in how it avoids collisions, but without the full encapsulation overhead. This would let SVG <defs> and internal references stay self-contained when reused, without needing to wrap every instance in a shadow root or apply complex runtime transformations.
+
+... there are several pain points with prefixing.
+
+It adds an extra and unnecessary step to the workflow, since every ID has to be prefixed in order to avoid collisions. In practice, this means you cannot safely reuse or inline SVGs as-is, because their internal references will clash unless they are rewritten. Even in static cases, people often copy and paste SVGs directly into the DOM without realizing there is any problem, and browsers do not warn about duplicate IDs. So even the simplest use cases can silently fail. This is especially common today, as inline SVGs have become a standard approach for styling and animating icons with CSS transitions and effects.
+
+Most current solutions depend on external tools to handle this automatically, but that often makes things worse in real projects due to tool limitations or collisions in the processing pipeline. For example, tools like SVGR can generate prefixed IDs, but once you use multiple SVGs with internal references on the same page, you start running into silent failures. If that is your use case, you need to manually create a React component that contains the SVG content and use React's useId to fix it, effectively bypassing the very tool that was meant to simplify the process.
+
+It becomes a fragile and error-prone process, where something as basic as reusing icons requires a build step and careful coordination just to avoid broken references.
+
+From @elektronik2k5:
+Another issue is how simply having an id attribute immediately pollutes the global namespace, allowing naming collisions with global JS code.
+But the main problem is what @iMoses outlined: anything with an id in it is hostile to a component abstraction based world (which in practice means almost all web runtimes), because as soon as you use such a component more than once - it is immediately broken, silently.
+Similarly, outside of the modern component based abstraction model, in documents/websites ids prohibit safely copy/pasting HTML+CSS, since you hit the same issue of a global namespace.
+Another, more subtle impact: when an element has an id, people tend to use it in CSS selectors, which starts a specificity war in the worst possible way: by dropping a nuke. It is the opposite of "the pit of success", since it immediately sets up the scene for failure.
+
 ### Alice’s posts
 
 > - What are the specific pain points around using IDs?
