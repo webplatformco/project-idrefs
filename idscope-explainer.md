@@ -15,7 +15,7 @@ Modern HTML documents have two common qualities to them:
 This is somewhat revised in shadow DOM, where IDs are only global within a shadow root.
 However, shadow DOM is a heavy-handed solution for some solutions, e.g., when the styles and querying needs to work like one document but not cross-element references.
 
-A relatively common example that tends to be common is SVG. Inline SVGs use IDs for internal references, and also tend to be imported from various sources.
+A relatively common example is SVG. Inline SVGs use IDs for internal references, and also tend to be imported from various sources.
 However, this problem is not SVG-specific. Embedding HTML snippets inside a bigger HTML document can cause the same issues.
 
 There are other pain points listed in the [explainer](https://github.com/WICG/idrefs/blob/main/README.md),
