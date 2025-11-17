@@ -8,7 +8,7 @@ Exploring/brainstorming a solution, as it pertains to a few particular painful a
 
 ## Narrower definition of the problem
 
-Modern HTML documents have two common qualities to them:
+Modern HTML documents have two common qualities to them, of a conflicting nature:
 1. They are composed of multiple fragments/components, some of them imported from elsewhere.
 1. For the purpose of elements referencing each other, the document is one global monolith, where globally unique IDs are the only referencing mechanism.
 
