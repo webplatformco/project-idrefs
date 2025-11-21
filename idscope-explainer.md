@@ -74,7 +74,8 @@ However, `form3`, which has an `idscope` attribute, the label would reference th
 
 ## Some notes/questions
 * Does this sufficiently help with the composition/integrity issue?
-* This does require an algorithm that is a bit more involved than global IDs. However, the worst case complexity of this algorithm (if not using any kind of caching) is derived from the amount of conflicts and depth of `idscope` nesting.
+* This does require an algorithm that is a bit more involved than global IDs. Is it efficient enough, given that IDs need to create a bi-directional binding?
+* How does this affect a11y tools that don't use the accessibility tree (e.g. web extensions, and ATs that use the DOM directly like Dragon)?
 * For this to apply to SVG, it would need to work for SVG hash fragments and not only for regular IDREFs.
 * Would this *encourage* people to make their IDs less unique, even when unnecessary? Is that a problem?
 
