@@ -581,7 +581,7 @@ https://x.com/iamthebuilder__/status/1955371673827545599
 
 [See here](https://github.com/webplatformco/explainers/pull/11)
 
-From @iMoses:
+From [@iMoses](https://github.com/imoses):
 This is a really important topic.
 The issue goes beyond simple ID collisions. The browser currently treats all element IDs in the document as part of a single global namespace. That made sense when pages were mostly static, but it does not fit the way we build things today, where HTML and SVG snippets are meant to be modular and reusable.
 In SVG, for example, defining a gradient requires creating a <defs> block, assigning it an id, and referencing it using url(#id) inside the same SVG. When that SVG is duplicated (for example, multiple icons on a page), all those references end up pointing to the first matching ID in the document.
@@ -603,9 +603,9 @@ Most current solutions depend on external tools to handle this automatically, bu
 
 It becomes a fragile and error-prone process, where something as basic as reusing icons requires a build step and careful coordination just to avoid broken references.
 
-From @elektronik2k5:
+From [@elektronik2k5](https://github.com/elektronik2k5):
 Another issue is how simply having an id attribute immediately pollutes the global namespace, allowing naming collisions with global JS code.
-But the main problem is what @iMoses outlined: anything with an id in it is hostile to a component abstraction based world (which in practice means almost all web runtimes), because as soon as you use such a component more than once - it is immediately broken, silently.
+But the main problem is what [@iMoses](https://github.com/imoses) outlined: anything with an id in it is hostile to a component abstraction based world (which in practice means almost all web runtimes), because as soon as you use such a component more than once - it is immediately broken, silently.
 Similarly, outside of the modern component based abstraction model, in documents/websites ids prohibit safely copy/pasting HTML+CSS, since you hit the same issue of a global namespace.
 Another, more subtle impact: when an element has an id, people tend to use it in CSS selectors, which starts a specificity war in the worst possible way: by dropping a nuke. It is the opposite of "the pit of success", since it immediately sets up the scene for failure.
 
